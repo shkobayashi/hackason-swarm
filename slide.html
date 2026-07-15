@@ -1,0 +1,124 @@
+<title>The Hardest Part — Architecture</title>
+<style>
+  :root {
+    --ink: #10141c; --panel: #1a2130; --panel-2: #151b27;
+    --line: #2a3347; --text: #edf1f7; --muted: #8b95a7;
+    --crisis: #ff5a48; --ship: #3edc8a; --revise: #f5b942;
+    font-size: clamp(10px, 1.35vw, 19px);
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--ink); color: var(--text);
+    font-family: ui-sans-serif, -apple-system, "SF Pro Display", "Segoe UI", sans-serif;
+    display: grid; place-items: center; padding: 2rem;
+  }
+  .slide {
+    width: min(96vw, 172vh); aspect-ratio: 16 / 9;
+    display: flex; flex-direction: column; gap: 1.4rem;
+    padding: 2.6rem 3rem 2.2rem;
+    background:
+      radial-gradient(60rem 30rem at 85% -20%, rgba(255, 90, 72, 0.07), transparent 60%),
+      var(--ink);
+  }
+  header { display: flex; align-items: baseline; justify-content: space-between; gap: 2rem; }
+  .team { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; }
+  .team em { font-style: normal; color: var(--crisis); }
+  .tagline { color: var(--muted); font-size: 1.05rem; text-align: right; }
+  .tagline strong { color: var(--text); font-weight: 600; }
+
+  .pipeline { flex: 1; display: flex; align-items: center; gap: 0; min-height: 0; }
+  .node {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 0.6rem;
+    padding: 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.3rem;
+  }
+  .node .k {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+  }
+  .node .v { font-weight: 700; font-size: 1.02rem; line-height: 1.25; }
+  .node .d { color: var(--muted); font-size: 0.8rem; line-height: 1.35; }
+
+  .brief { flex: 1.1; border-left: 3px solid var(--crisis); }
+  .brief .v { font-size: 0.98rem; }
+  .coord { flex: 1; }
+  .lane { flex: 1.35; display: flex; flex-direction: column; gap: 0.55rem; position: relative; }
+  .lane .node { flex: 1; flex-direction: row; align-items: center; gap: 0.7rem; padding: 0.55rem 0.9rem; }
+  .lane .emoji { font-size: 1.25rem; }
+  .lane .v { font-size: 0.92rem; }
+  .lane .d { font-size: 0.72rem; }
+  .lane-label {
+    position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%);
+    font-family: ui-monospace, Menlo, monospace; font-size: 0.68rem;
+    letter-spacing: 0.14em; color: var(--crisis); white-space: nowrap;
+  }
+  .synth { flex: 1; }
+  .critic { flex: 1.05; border-color: #3d3423; background: var(--panel-2); }
+  .verdicts { display: flex; gap: 0.45rem; margin-top: 0.2rem; flex-wrap: wrap; }
+  .stamp {
+    font-family: ui-monospace, Menlo, monospace; font-size: 0.72rem; font-weight: 700;
+    padding: 0.18rem 0.5rem; border-radius: 0.3rem; border: 1.5px solid;
+  }
+  .ship { color: var(--ship); border-color: var(--ship); }
+  .rev { color: var(--revise); border-color: var(--revise); }
+  .arrow { flex: 0 0 2.2rem; display: grid; place-items: center; color: var(--muted); }
+  .arrow svg { width: 100%; height: 1.1rem; }
+  .loop { color: var(--revise); font-size: 0.68rem; font-family: ui-monospace, Menlo, monospace;
+    text-align: center; margin-top: 0.35rem; }
+
+  footer { display: flex; gap: 0.8rem; }
+  .chip {
+    flex: 1; background: var(--panel-2); border: 1px solid var(--line); border-radius: 0.5rem;
+    padding: 0.6rem 0.9rem; font-size: 0.78rem; color: var(--muted); line-height: 1.4;
+  }
+  .chip b { color: var(--text); display: block; font-size: 0.85rem; }
+</style>
+<div class="slide">
+  <header>
+    <div class="team">THE HARDEST PART<em>.</em></div>
+    <div class="tagline"><strong>“The hardest part is saying you’re sorry.”</strong><br>
+      Track 03 · Specialist Swarm — a crisis-response agent team for Lumina Cloud</div>
+  </header>
+
+  <div class="pipeline">
+    <div class="node brief">
+      <span class="k">input</span>
+      <span class="v">Crisis brief</span>
+      <span class="d">“The CEO’s emotional-support llama breached the datacenter. us-east-1 is down. The livestream has 2.1M views.”</span>
+    </div>
+    <div class="arrow"><svg viewBox="0 0 40 12"><path d="M0 6h34m0 0-5-4m5 4-5 4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+    <div class="node coord">
+      <span class="k">coordinator · sonnet</span>
+      <span class="v">Decompose</span>
+      <span class="d">Splits the crisis into distinct issues; writes marching orders per specialist</span>
+    </div>
+    <div class="arrow"><svg viewBox="0 0 40 12"><path d="M0 6h34m0 0-5-4m5 4-5 4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+    <div class="lane">
+      <span class="lane-label">4 SPECIALISTS · PARALLEL · 3 TOOLS EACH</span>
+      <div class="node"><span class="emoji">🔍</span><div><div class="v">Fact-Checker</div><div class="d">catches the planted lie in every brief</div></div></div>
+      <div class="node"><span class="emoji">⚖️</span><div><div class="v">Legal Risk</div><div class="d">apology ≠ admission · banned phrases</div></div></div>
+      <div class="node"><span class="emoji">📣</span><div><div class="v">Comms Strategy</div><div class="d">brand voice · stakeholder order</div></div></div>
+      <div class="node"><span class="emoji">📱</span><div><div class="v">Social Media</div><div class="d">ride the meme, never fight it</div></div></div>
+    </div>
+    <div class="arrow"><svg viewBox="0 0 40 12"><path d="M0 6h34m0 0-5-4m5 4-5 4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+    <div class="node synth">
+      <span class="k">coordinator · sonnet</span>
+      <span class="v">Synthesize</span>
+      <span class="d">Press statement · internal talking points · 3 tweets ≤ 280</span>
+    </div>
+    <div class="arrow"><svg viewBox="0 0 40 12"><path d="M0 6h34m0 0-5-4m5 4-5 4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+    <div class="node critic">
+      <span class="k">critic · “head of pr” · haiku</span>
+      <span class="v">The Verdict</span>
+      <div class="verdicts"><span class="stamp rev">REVISE ✏️</span><span class="stamp ship">SHIP IT ✅</span></div>
+      <div class="loop">↩ rejected drafts loop back · max 2 revisions</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="chip"><b>Plain Messages API</b>zero frameworks · stdlib SSE dashboard · live &amp; replay share one event stream</div>
+    <div class="chip"><b>Sonnet 4.6 + Haiku 4.5</b>streaming tool loops · structured outputs · per-agent prompt caching</div>
+    <div class="chip"><b>Every run is a recording</b>event JSONL → replay mode → the demo can never die on stage</div>
+    <div class="chip"><b>We measured it</b>eval harness: 8 crises × 9 criteria — liability, tone, coverage, tweet length</div>
+  </footer>
+</div>
