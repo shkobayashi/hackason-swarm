@@ -1,0 +1,245 @@
+{
+  "company": {
+    "name": "Lumina Cloud, Inc.",
+    "founded": 2014,
+    "headquarters": "The Lantern Building, 1440 NW Overton St, Portland, Oregon",
+    "employees": 1187,
+    "tagline": "Infrastructure you can see by.",
+    "business_customers": 22000,
+    "enterprise_tier1_accounts": 340,
+    "datacenters": [
+      "LUM-ASH-1 — Ashburn, Virginia (region us-east-1)",
+      "LUM-HIL-1 — Hillsboro, Oregon (region us-west-2)",
+      "LUM-FRA-1 — Frankfurt, Germany (region eu-central-1)"
+    ]
+  },
+  "products": [
+    {
+      "name": "LuminaCore",
+      "description": "Flagship compute and storage infrastructure platform. Runs in us-east-1, us-west-2, and eu-central-1.",
+      "launched": 2015
+    },
+    {
+      "name": "Beacon",
+      "description": "Observability and alerting suite. Watches everything, including, as of 2025, Lumi.",
+      "launched": 2018
+    },
+    {
+      "name": "Lumi",
+      "description": "AI support teammate that drafts and sends first-response replies to support tickets. Enterprise GA scheduled for Q4 2026.",
+      "launched": 2025
+    },
+    {
+      "name": "Glowworm",
+      "description": "Managed data migration service. Moves and renames account metadata with rollback snapshots. Motto: 'Slow is smooth, smooth is fast.'",
+      "launched": 2020
+    }
+  ],
+  "slas": [
+    {
+      "product": "LuminaCore",
+      "commitment": "99.95% monthly uptime",
+      "credits": "Automatic service credits within one billing cycle — customers never file a claim. 10% credit below 99.95%, 25% below 99.5%, 50% below 99.0%."
+    },
+    {
+      "product": "Beacon",
+      "commitment": "99.9% monthly uptime",
+      "credits": "Automatic 10% credit for any breached month."
+    },
+    {
+      "product": "Enterprise Support",
+      "commitment": "1-hour first-meaningful-response on enterprise tickets, 24/7",
+      "credits": "Support-fee credits applied automatically when breached; 'lol no' does not constitute a meaningful response per Support Policy SUP-12."
+    },
+    {
+      "product": "Glowworm",
+      "commitment": "Zero-data-loss migration guarantee",
+      "credits": "All migration jobs retain 30-day rollback snapshots; rename operations never touch underlying customer data stores."
+    }
+  ],
+  "execs": [
+    {
+      "name": "Priya Vasquez",
+      "title": "Chief Executive Officer & Co-founder",
+      "notes": "Owner and registered handler of Biscuit, the company's emotional-support llama."
+    },
+    {
+      "name": "Theo Lindgren",
+      "title": "Chief Technology Officer & Co-founder",
+      "notes": "Author of the INC-104 postmortem and its now-famous phrase 'multiple redundant safeguards.'"
+    },
+    {
+      "name": "Marisol Okafor",
+      "title": "General Counsel",
+      "notes": "Maintains the banned-phrase list. Has read every apology the company has ever published, twice."
+    },
+    {
+      "name": "Hank Bream",
+      "title": "Chief Financial Officer",
+      "notes": "Volunteer taste-tester for the HQ kombucha program since 2022. This is not in his job description."
+    },
+    {
+      "name": "Sloane Kowalczyk",
+      "title": "Chief Marketing Officer",
+      "notes": "Owns the Super Bowl campaign and the Lumina AirDrop drone pilot."
+    }
+  ],
+  "facts": [
+    {
+      "topic": "Biscuit the llama — identity",
+      "fact": "Biscuit is a seven-year-old llama and CEO Priya Vasquez's registered emotional-support animal (ESA registration #OR-2019-4471, renewed annually and on file with HR)."
+    },
+    {
+      "topic": "Biscuit badge access",
+      "fact": "Biscuit holds employee badge LUM-0007 with OFFICE-ONLY access at Portland HQ. Biscuit has never been credentialed for any datacenter, including Ashburn (LUM-ASH-1)."
+    },
+    {
+      "topic": "Biscuit title and schedule",
+      "fact": "Biscuit's honorary title is Chief Morale Officer, conferred by all-hands vote on 2024-06-21 (1,102 for, 3 against, 82 abstained). Scheduled HQ visits are Tuesdays 2-4 pm, third floor only."
+    },
+    {
+      "topic": "us-east-1 outage 2026-07-15 duration",
+      "fact": "Status page log: the us-east-1 incident on 2026-07-15 began at 09:14 PT and service was fully restored at 09:57 PT — total duration 43 minutes. Figures of '90 minutes' circulating internally and on social media do not match the log."
+    },
+    {
+      "topic": "Ashburn cable tray",
+      "fact": "The Ashburn cable tray dislodged on 2026-07-15 carried a power path identified as a single point of failure in the INC-104 postmortem (March 2026). Remediation ticket FAC-2291 was scheduled for Q3 2026 and had not yet been executed."
+    },
+    {
+      "topic": "cable tray damage mechanism",
+      "fact": "Facilities inspection: the cable tray was dislodged, not chewed through. Biscuit made contact with the tray support bracket; the cable failure itself was the pre-existing single point of failure from INC-104."
+    },
+    {
+      "topic": "Ashburn badge gate",
+      "fact": "The Ashburn perimeter badge gate is rated for human tailgating prevention. The manufacturer's spec sheet does not address quadrupeds. Facilities has opened ticket FAC-2307: 'Assess gate vs. large mammals.'"
+    },
+    {
+      "topic": "engineer livestream 2026-07-15",
+      "fact": "The llama-pursuit livestream was broadcast by staff engineer Dale Whitcombe from a personal account, in violation of Employee Handbook section 7.4 (no livestreaming from company facilities). HR review opened at 10:05 PT."
+    },
+    {
+      "topic": "social media policy",
+      "fact": "All public posts from company accounts require two-approver sign-off (policy adopted after INC-102). Personal livestreaming from company facilities is prohibited by Handbook section 7.4."
+    },
+    {
+      "topic": "uptime SLA LuminaCore",
+      "fact": "LuminaCore commits to 99.95% monthly uptime. Service credits are applied automatically within one billing cycle — customers never need to file a claim. Tiers: 10% credit below 99.95%, 25% below 99.5%, 50% below 99.0%."
+    },
+    {
+      "topic": "enterprise support SLA",
+      "fact": "Enterprise support tickets carry a 1-hour first-meaningful-response SLA, 24/7. Per Support Policy SUP-12, an automated reply of 'lol no' does not constitute a meaningful response."
+    },
+    {
+      "topic": "status page policy",
+      "fact": "Public status page is status.luminacloud.example. Policy COM-9 requires an incident notice within 15 minutes of confirmed customer impact."
+    },
+    {
+      "topic": "Lumi rollback capability",
+      "fact": "Every Lumi prompt deploy ships with one-click rollback. Deploy policy also requires a canary run against 50 sandbox tickets before production (control adopted after INC-106)."
+    },
+    {
+      "topic": "Lumi incident 2026-07-15 timeline",
+      "fact": "Lumi deploy log, 2026-07-15: prompt v41 shipped at 04:40 PT with the canary step skipped. Beacon fired an anomaly alert at 05:51 PT. Rollback completed at 06:42 PT. Total exposure window: 2 hours 2 minutes — the deploy did not run 'all night undetected.'"
+    },
+    {
+      "topic": "Lumi ticket count 2026-07-15",
+      "fact": "Ticket system logs show exactly 3,987 tickets received automated replies from Lumi prompt v41, of which 2,341 were enterprise-tier. The '4,000+' figure circulating is a round-up."
+    },
+    {
+      "topic": "Lumi profanity filter",
+      "fact": "Lumi's profanity filter operates at the output layer and remained active throughout the v41 incident. Replies were dismissive ('lol no', 'sounds like a you problem', 'have you tried wanting less') but contained zero profanity."
+    },
+    {
+      "topic": "kombucha program",
+      "fact": "The HQ kombucha program ('Fermentation Friday') has operated since 2022 under Facilities. All kegs are fitted with pressure-relief valves rated to vent at 42 PSI, installed after the INC-107 near-miss. CFO Hank Bream taste-tests every batch."
+    },
+    {
+      "topic": "kombucha incident 2026-07-15 injuries",
+      "fact": "Facilities log, 2026-07-15: keg #7's pressure-relief valve vented as designed during the Lumina Summit. Zero injuries recorded, zero hospitalizations. One attendee filed a dry-cleaning claim (approved, $34)."
+    },
+    {
+      "topic": "kombucha keg explosion claim",
+      "fact": "Keg #7 did not explode. The relief valve released pressure in a loud sustained hiss; the building alarm triggered because valve mist reached a smoke detector. The keg is intact and impounded by Facilities."
+    },
+    {
+      "topic": "kombucha fire department response",
+      "fact": "Portland Fire & Rescue responded to the 2026-07-15 alarm, cleared the building in 26 minutes, and issued no citation. The kombucha program is suspended pending a facilities review — it has not been permanently shut down."
+    },
+    {
+      "topic": "Lumina Summit",
+      "fact": "Lumina Summit is the annual customer conference at Portland HQ. The 2026 Summit (July 14-16) has 612 registered attendees, including 90 from Tier-1 enterprise accounts."
+    },
+    {
+      "topic": "Super Bowl ad buy",
+      "fact": "The Super Bowl LX spot (2026-02-08) was a regional buy across 12 markets at $6.8M, reaching an estimated 9.4M viewers. It was not a national buy and did not reach '120 million viewers.'"
+    },
+    {
+      "topic": "Super Bowl ad approval",
+      "fact": "Legal's ad-review sign-off (2026-01-29) covered the 45-second master cut. The closing three-second 'partner ecosystem' montage was added by the agency, Bright Helm Creative, after sign-off and never entered Lumina's review workflow."
+    },
+    {
+      "topic": "Super Bowl closing frame",
+      "fact": "Broadcast QC confirms the closing frame of the aired Super Bowl cut displayed the Nimbus Dynamics logo for 1.8 seconds. The error exists only in the agency's montage layer, not in any Lumina-approved master."
+    },
+    {
+      "topic": "Nimbus Dynamics relationship",
+      "fact": "Nimbus Dynamics is Lumina Cloud's closest competitor. The 2025 trademark settlement (LP-004) includes a mutual non-disparagement clause: public statements must not attack Nimbus Dynamics, even when their logo appears in our Super Bowl ad."
+    },
+    {
+      "topic": "Glowworm scope of operations",
+      "fact": "Glowworm migration jobs operate on account metadata only (display names, labels, routing). Rename operations never touch underlying customer data stores, and every job retains a 30-day rollback snapshot."
+    },
+    {
+      "topic": "migration incident 2026-07-15 accounts affected",
+      "fact": "Glowworm job #88-1407 renamed 21,806 account display-name records to 'Test McTestface' — every active account. The '60,000 customers' figure circulating is wrong; Lumina Cloud has 22,000 business customers total. No underlying data was modified and the rollback snapshot is intact."
+    },
+    {
+      "topic": "invoices 2026-07-15",
+      "fact": "Billing dispatched 8,214 invoices addressed to 'Test McTestface' before the 07:20 PT hold. Under the INC-105 invoice review gate, corrected invoices can be re-issued within 24 hours."
+    },
+    {
+      "topic": "Northgate Mutual",
+      "fact": "Northgate Mutual Insurance is Lumina Cloud's largest customer: 11.2% of ARR, 4,100 LuminaCore instances, and a contract renewal due 2026-09-01 — 48 days after 2026-07-15, not 'next year.'"
+    },
+    {
+      "topic": "CloudScale Expo hot mic",
+      "fact": "CEO Priya Vasquez's 2026-07-15 panel at CloudScale Expo was mic'd by conference AV. Lumina Cloud does not control the recording, and the clip is authentic per our own AV lead who was in the booth."
+    },
+    {
+      "topic": "LuminaCoin blog post",
+      "fact": "The 2021-11-04 blog post 'LuminaCoin: The Future of Cloud Billing?' was written by a former CMO, retracted on 2022-01-19, and now carries a correction note: 'Lumina Cloud has no cryptocurrency product and no plans for one.' The original post is not live; only archived copies circulate."
+    },
+    {
+      "topic": "crypto policy",
+      "fact": "Board resolution 2022-07 prohibits Lumina Cloud from launching any token, coin, or blockchain product. There is no LuminaCoin token contract, wallet, whitepaper, or presale — any site claiming otherwise is a scam."
+    },
+    {
+      "topic": "drone program",
+      "fact": "Lumina AirDrop is a marketing pilot: two drones, both FAA-registered (FA-77LMN401, FA-77LMN402), flown under Part 107 by certified pilots. Maximum payload is 6 lbs — roughly 10 folded t-shirts — per flight."
+    },
+    {
+      "topic": "drone incident 2026-07-15 flight logs",
+      "fact": "Flight logs: AirDrop unit 2 flew 38 autonomous sorties over 4.5 hours to deliver 400 t-shirts to a waypoint mis-set to the Multnomah County Courthouse lawn. A single drone cannot carry 400 shirts at once; the claim of 'one unregistered drone, one flight' is false on both counts."
+    },
+    {
+      "topic": "drone waypoint review",
+      "fact": "After INC-108, all AirDrop waypoints require two-person review. The courthouse waypoint (2026-07-15) was approved by one person using both reviewer logins, which Facilities notes 'defeats the purpose.'"
+    },
+    {
+      "topic": "t-shirt shipment",
+      "fact": "The 400 delivered t-shirts were Lumina Summit 2026 attendee gifts ('Shine On') redirected from the Summit swag drop scheduled for the HQ lawn, 2.1 miles from the courthouse."
+    },
+    {
+      "topic": "press contact and spokespeople",
+      "fact": "All media inquiries route to press@luminacloud.example. The only authorized crisis spokespeople are the CEO, the CMO, and the General Counsel."
+    },
+    {
+      "topic": "office perks",
+      "fact": "HQ perks include the kombucha program, a nap yurt, and Biscuit's Tuesday visits. Facilities maintains a laminated one-page risk assessment for each."
+    },
+    {
+      "topic": "headcount",
+      "fact": "Headcount as of 2026-07-01: 1,187 full-time employees, 6 contractors, 1 llama."
+    }
+  ]
+}

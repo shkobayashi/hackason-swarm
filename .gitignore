@@ -1,0 +1,9 @@
+.env
+key.env
+*.local
+.venv/
+__pycache__/
+*.pyc
+runs/*.jsonl
+.DS_Store
+evals/results.json

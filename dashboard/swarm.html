@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE HARDEST PART — crisis swarm</title>
+<style>
+/* ============== tokens: dark by default (projector demo) ============== */
+:root{
+  --bg:#100d14; --surface:#1d1922; --surface-2:#241e2d; --ink:#ece8f1; --muted:#a49bad;
+  --hair:#2f2838; --hair-2:#272130; --accent:#3ec7cf; --accent-soft:#123033;
+  --plum:#c79ac2; --pass:#4cd28c; --fail:#f2788a; --warn:#e0a94a; --orange:#f0954a;
+  --pass-bg:#12291e; --fail-bg:#2c1620; --warn-bg:#2a2012; --live:#ff5d6c;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,"Times New Roman",serif;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.35);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f4f3f6; --surface:#ffffff; --surface-2:#faf9fb; --ink:#211d29; --muted:#6d6676;
+    --hair:#e5e2ea; --hair-2:#efedf3; --accent:#0c7b84; --accent-soft:#e2f2f2;
+    --plum:#7c4a78; --pass:#1f9d57; --fail:#cf4a5e; --warn:#c07a1e; --orange:#d2691e;
+    --pass-bg:#e7f6ee; --fail-bg:#fbe9ec; --warn-bg:#fbf1e2; --live:#d9364a;
+    --shadow:0 1px 2px rgba(30,20,40,.04),0 4px 16px rgba(30,20,40,.05);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#100d14;--surface:#1d1922;--surface-2:#241e2d;--ink:#ece8f1;--muted:#a49bad;
+  --hair:#2f2838;--hair-2:#272130;--accent:#3ec7cf;--accent-soft:#123033;
+  --plum:#c79ac2;--pass:#4cd28c;--fail:#f2788a;--warn:#e0a94a;--orange:#f0954a;
+  --pass-bg:#12291e;--fail-bg:#2c1620;--warn-bg:#2a2012;--live:#ff5d6c;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.35);
+}
+:root[data-theme="light"]{
+  --bg:#f4f3f6;--surface:#ffffff;--surface-2:#faf9fb;--ink:#211d29;--muted:#6d6676;
+  --hair:#e5e2ea;--hair-2:#efedf3;--accent:#0c7b84;--accent-soft:#e2f2f2;
+  --plum:#7c4a78;--pass:#1f9d57;--fail:#cf4a5e;--warn:#c07a1e;--orange:#d2691e;
+  --pass-bg:#e7f6ee;--fail-bg:#fbe9ec;--warn-bg:#fbf1e2;--live:#d9364a;
+  --shadow:0 1px 2px rgba(30,20,40,.04),0 4px 16px rgba(30,20,40,.05);
+}
+
+/* ============== base ============== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;overflow:hidden}
+h1,h2,h3,h4{margin:0;text-wrap:balance}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.cardlabel{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);
+  font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:14px;
+  box-shadow:var(--shadow);padding:16px 18px}
+
+/* ============== header ============== */
+header{display:flex;align-items:center;gap:18px;padding:10px 20px;flex:0 0 auto;
+  border-bottom:1px solid var(--hair);background:var(--surface)}
+header.flash{animation:hdrflash 1.6s ease-out 1}
+@keyframes hdrflash{0%{background:var(--pass-bg);box-shadow:inset 0 -3px 0 var(--pass)}
+  100%{background:var(--surface)}}
+.wordmark{display:flex;flex-direction:column;line-height:1.15}
+.wordmark .team{font-weight:800;letter-spacing:.14em;font-size:17px}
+.wordmark .team .hard{color:var(--live)}
+.wordmark .tagline{font-family:var(--serif);font-style:italic;color:var(--plum);font-size:12.5px}
+.scenario{flex:1;min-width:0;text-align:center;font-weight:700;font-size:18px;
+  letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink)}
+.hstats{display:flex;align-items:center;gap:16px}
+.mode{font-size:11.5px;font-weight:800;letter-spacing:.12em;border-radius:7px;
+  padding:4px 10px;border:1px solid var(--hair);color:var(--muted)}
+.mode.live{color:#fff;background:var(--live);border-color:var(--live);animation:pulse 1.3s ease-in-out infinite}
+.mode.replay{color:#1d1400;background:var(--warn);border-color:var(--warn)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,93,108,.55)}50%{box-shadow:0 0 0 7px rgba(255,93,108,0)}}
+.clock{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:20px;font-weight:700;min-width:70px;text-align:right}
+.costwrap{display:flex;flex-direction:column;align-items:flex-end;line-height:1.2}
+#cost{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:20px;font-weight:700;color:var(--accent)}
+#cost.pop{animation:costpop .35s ease-out 1}
+@keyframes costpop{40%{transform:scale(1.13)}}
+.cache{font-family:var(--mono);font-size:11px;color:var(--warn)}
+
+/* ============== main grid ============== */
+main{flex:1;display:grid;grid-template-columns:minmax(280px,330px) minmax(430px,1fr) minmax(380px,470px);
+  gap:14px;padding:14px 16px;min-height:0}
+.col{display:flex;flex-direction:column;gap:14px;min-height:0;overflow-y:auto;padding-bottom:2px}
+@media(max-width:1100px){main{grid-template-columns:1fr 1fr;overflow-y:auto}
+  .col{overflow:visible}.col.right{grid-column:1/-1}body{overflow:auto}}
+
+/* ============== crisis brief ============== */
+.brief h2{font-size:16.5px;letter-spacing:-.01em;margin:0 0 8px;color:var(--live)}
+.brief h3{font-size:14px;margin:8px 0 4px}
+.brief p{margin:0 0 10px;font-size:13.5px;color:var(--ink)}
+.brief p:last-child{margin-bottom:0}
+.brief code{font-family:var(--mono);font-size:11.5px;background:var(--surface-2);
+  border:1px solid var(--hair-2);padding:1px 6px;border-radius:5px;color:var(--plum)}
+.brief .empty{color:var(--muted);font-style:italic}
+
+/* ============== coordinator: phases + issues ============== */
+.phases{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:2px}
+.phases li{display:flex;align-items:center;gap:10px;padding:5px 8px;border-radius:8px;
+  font-size:13.5px;color:var(--muted);font-weight:600}
+.phases li .dot{width:10px;height:10px;border-radius:50%;background:var(--hair);flex:0 0 auto;
+  transition:background .25s, box-shadow .25s}
+.phases li.done{color:var(--ink)}
+.phases li.done .dot{background:var(--pass)}
+.phases li.active{color:var(--ink);background:var(--accent-soft)}
+.phases li.active .dot{background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 25%,transparent);
+  animation:pulse-dot 1.2s ease-in-out infinite}
+@keyframes pulse-dot{50%{transform:scale(1.35)}}
+.coordline{font-family:var(--mono);font-size:11.5px;color:var(--muted);min-height:1.3em;
+  margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.issues{display:flex;flex-wrap:wrap;gap:7px}
+.issue{font-size:12px;font-weight:600;border-radius:999px;padding:4px 11px;border:1px solid;
+  animation:popin .3s cubic-bezier(.2,1.5,.4,1) 1;line-height:1.35}
+.issue .sev{font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;margin-right:6px}
+@keyframes popin{from{transform:scale(.4);opacity:0}}
+.sev-low{color:var(--muted);border-color:var(--hair);background:var(--surface-2)}
+.sev-medium{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 55%,transparent);background:var(--warn-bg)}
+.sev-high{color:var(--orange);border-color:color-mix(in srgb,var(--orange) 55%,transparent);
+  background:color-mix(in srgb,var(--orange) 14%,transparent)}
+.sev-critical{color:var(--fail);border-color:color-mix(in srgb,var(--fail) 60%,transparent);background:var(--fail-bg)}
+
+/* ============== specialist cards ============== */
+.grid2{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:14px;flex:1;min-height:0}
+.agent{background:var(--surface);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);
+  padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-height:170px;
+  transition:opacity .4s,border-color .4s,box-shadow .4s;position:relative;overflow:hidden}
+.agent.pending{opacity:.55}
+.agent.active{border-color:var(--accent);
+  box-shadow:0 0 0 1px var(--accent),0 0 18px color-mix(in srgb,var(--accent) 35%,transparent),var(--shadow)}
+.agent.done{border-color:color-mix(in srgb,var(--pass) 55%,var(--hair))}
+.agent.failed{border-color:color-mix(in srgb,var(--fail) 55%,var(--hair))}
+.ag-head{display:flex;align-items:center;gap:9px}
+.ag-icon{font-size:21px;line-height:1}
+.ag-name{font-weight:750;font-size:15.5px;letter-spacing:-.01em;flex:1}
+.ag-state{font-size:11px;text-transform:uppercase;letter-spacing:.09em;font-weight:700;color:var(--muted)}
+.agent.active .ag-state{color:var(--accent)}
+.agent.done .ag-state{color:var(--pass)}
+.agent.failed .ag-state{color:var(--fail)}
+.spinner{width:13px;height:13px;border-radius:50%;border:2px solid var(--hair);
+  border-top-color:var(--accent);animation:spin .7s linear infinite;display:inline-block;vertical-align:-2px;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ag-brief{font-size:12px;color:var(--muted);line-height:1.4;display:none}
+.agent.active .ag-brief{display:block}
+.ag-pills{display:flex;flex-wrap:wrap;gap:6px;min-height:0}
+.pill{font-family:var(--mono);font-size:11px;background:var(--accent-soft);color:var(--accent);
+  border-radius:7px;padding:3px 9px;font-weight:600;animation:popin .25s ease-out 1;
+  transition:opacity .5s,transform .5s;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pill.fade{opacity:0;transform:translateY(-4px)}
+.ag-stream{font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--muted);
+  background:var(--surface-2);border:1px solid var(--hair-2);border-radius:9px;padding:7px 10px;
+  height:5.2em;overflow-y:auto;display:none;flex:0 0 auto}
+.agent.active .ag-stream{display:block}
+.ag-stream .toolres{opacity:.65;font-style:italic}
+.ag-summary{display:none;font-size:13px;line-height:1.55}
+.agent.done .ag-summary,.agent.failed .ag-summary{display:block}
+.ag-summary .row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:5px}
+.ag-summary .big{font-weight:750;font-size:14.5px}
+.ag-summary .sub{color:var(--muted);font-size:12px}
+.badge{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;
+  border-radius:6px;padding:2px 8px;display:inline-block}
+.badge.pass{color:var(--pass);background:var(--pass-bg)}
+.badge.warn{color:var(--warn);background:var(--warn-bg)}
+.badge.fail{color:var(--fail);background:var(--fail-bg)}
+.badge.neutral{color:var(--muted);background:var(--surface-2);border:1px solid var(--hair-2)}
+.check{color:var(--pass);font-weight:800}
+
+/* ============== synthesis panel ============== */
+.synth{position:relative;flex:1;display:flex;flex-direction:column;min-height:320px;overflow:hidden}
+.synth-body{flex:1;overflow-y:auto;min-height:0}
+.ribbon{position:absolute;top:14px;right:-38px;transform:rotate(38deg);z-index:6;
+  background:var(--warn);color:#1d1400;font-size:10.5px;font-weight:800;letter-spacing:.12em;
+  padding:4px 42px;box-shadow:var(--shadow)}
+.synth-idle{color:var(--muted);font-style:italic;font-size:13.5px}
+.synthstream{font-family:var(--mono);font-size:12px;color:var(--accent);line-height:1.6;
+  border-left:3px solid var(--accent);padding:2px 0 2px 12px;margin-bottom:14px;white-space:pre-wrap}
+.press{font-family:var(--serif);background:var(--surface-2);border:1px solid var(--hair-2);
+  border-radius:11px;padding:18px 20px;margin-bottom:14px}
+.press .fir{font-family:var(--sans);font-size:10.5px;text-transform:uppercase;letter-spacing:.22em;
+  font-weight:800;color:var(--live);margin-bottom:10px}
+.press .body{font-size:14.5px;line-height:1.7;white-space:pre-wrap}
+.press .sig{margin-top:12px;font-style:italic;color:var(--muted);font-size:12.5px}
+.tp h4,.tw h4{font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:var(--muted);margin:0 0 7px}
+.tp ul{margin:0 0 14px;padding-left:20px;font-size:13px;line-height:1.6}
+.tp li{margin-bottom:3px}
+.tweets{display:flex;flex-direction:column;gap:9px;margin-bottom:10px}
+.tweet{border:1px solid var(--hair);border-radius:14px;padding:11px 13px;background:var(--surface-2);
+  font-size:13px;line-height:1.5;position:relative}
+.tweet .handle{font-weight:750;font-size:12.5px}
+.tweet .handle .at{color:var(--muted);font-weight:500}
+.tweet .txt{margin-top:3px;padding-bottom:14px}
+.tweet .count{position:absolute;bottom:7px;right:12px;font-family:var(--mono);font-size:10.5px;font-weight:700}
+.tweet .count.ok{color:var(--pass)} .tweet .count.over{color:var(--fail)}
+.changes{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 4px}
+.change{font-size:12px;color:var(--warn);background:var(--warn-bg);
+  border:1px solid color-mix(in srgb,var(--warn) 50%,transparent);border-radius:9px;
+  padding:6px 11px;line-height:1.4;animation:popin .3s ease-out 1}
+.verdictline{margin-top:8px;display:flex;flex-direction:column;gap:7px}
+.oneliner{font-family:var(--serif);font-style:italic;font-size:14.5px;color:var(--ink)}
+.pips{display:flex;gap:7px;align-items:center}
+.pips .plabel{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:700}
+.pip{width:13px;height:13px;border-radius:50%;display:inline-block}
+.pip.pass{background:var(--pass)} .pip.fail{background:var(--fail);box-shadow:0 0 0 3px var(--fail-bg)}
+
+/* ============== rubber stamp ============== */
+.stamp{position:absolute;top:38%;left:50%;z-index:8;pointer-events:none;
+  transform:translate(-50%,-50%) rotate(-12deg) scale(1);
+  font-weight:900;font-size:clamp(28px,4.2vw,52px);letter-spacing:.06em;white-space:nowrap;
+  padding:10px 26px;border:6px solid;border-radius:12px;background:color-mix(in srgb,var(--bg) 55%,transparent);
+  animation:thud .3s cubic-bezier(.25,1.6,.45,1) 1;text-align:center;line-height:1.15}
+.stamp.ship{color:var(--pass);border-color:var(--pass);text-shadow:0 0 24px var(--pass-bg)}
+.stamp.revise{color:var(--fail);border-color:var(--fail)}
+.stamp.reserve{color:var(--warn);border-color:var(--warn);font-size:clamp(20px,2.6vw,34px)}
+@keyframes thud{from{transform:translate(-50%,-50%) rotate(-12deg) scale(3);opacity:0}
+  to{transform:translate(-50%,-50%) rotate(-12deg) scale(1);opacity:1}}
+.stamp.away{transition:transform .7s ease-in,opacity .7s ease-in;
+  transform:translate(90%,-160%) rotate(-4deg) scale(.8);opacity:0}
+
+/* ============== final stats / toasts ============== */
+.finalstats{border:1px solid color-mix(in srgb,var(--pass) 45%,var(--hair));background:var(--pass-bg);
+  border-radius:12px;padding:12px 16px;font-size:13.5px;display:flex;gap:14px;align-items:center;
+  flex-wrap:wrap;animation:popin .35s ease-out 1}
+.finalstats b{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.finalstats a{color:var(--accent);font-weight:700;text-decoration:none;margin-left:auto}
+.finalstats a:hover{text-decoration:underline}
+#toasts{position:fixed;bottom:18px;right:18px;display:flex;flex-direction:column;gap:9px;z-index:50;max-width:380px}
+.toast{background:var(--fail-bg);color:var(--fail);border:1px solid color-mix(in srgb,var(--fail) 55%,transparent);
+  border-radius:11px;padding:11px 15px;font-size:13px;box-shadow:var(--shadow);
+  animation:popin .25s ease-out 1;transition:opacity .5s}
+.toast.fade{opacity:0}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--hair);border-radius:5px}
+::-webkit-scrollbar-track{background:transparent}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wordmark">
+    <span class="team">THE <span class="hard">HARDEST</span> PART</span>
+    <span class="tagline">the hardest part is saying you're sorry</span>
+  </div>
+  <div class="scenario" id="scenario">waiting for a crisis…</div>
+  <div class="hstats">
+    <span class="mode" id="mode">STANDBY</span>
+    <span class="clock" id="clock">00:00</span>
+    <span class="costwrap">
+      <span id="cost">$0.0000</span>
+      <span class="cache" id="cache" hidden></span>
+    </span>
+  </div>
+</header>
+
+<main>
+  <!-- ============ left: brief + coordinator ============ -->
+  <section class="col left">
+    <div class="card brief">
+      <div class="cardlabel">🚨 Crisis Brief</div>
+      <div id="brief"><span class="empty">No incident yet. Enjoy it while it lasts.</span></div>
+    </div>
+    <div class="card">
+      <div class="cardlabel">🧭 Coordinator</div>
+      <ol class="phases" id="phases">
+        <li data-phase="decompose"><span class="dot"></span>Decompose</li>
+        <li data-phase="fanout"><span class="dot"></span>Fan out to specialists</li>
+        <li data-phase="synthesize"><span class="dot"></span>Synthesize</li>
+        <li data-phase="critique"><span class="dot"></span>Critique</li>
+        <li data-phase="done"><span class="dot"></span>Done</li>
+      </ol>
+      <div class="coordline" id="coordline"></div>
+      <div class="cardlabel" id="issuelabel" hidden>Issues Identified</div>
+      <div class="issues" id="issues"></div>
+    </div>
+  </section>
+
+  <!-- ============ center: the swarm ============ -->
+  <section class="col center">
+    <div class="grid2" id="specialists">
+      <div class="agent pending" id="ag-fact_checker">
+        <div class="ag-head"><span class="ag-icon">🔍</span><span class="ag-name">Fact-Checker</span>
+          <span class="ag-state">standing by</span></div>
+        <div class="ag-brief"></div>
+        <div class="ag-pills"></div>
+        <div class="ag-stream"></div>
+        <div class="ag-summary"></div>
+      </div>
+      <div class="agent pending" id="ag-legal">
+        <div class="ag-head"><span class="ag-icon">⚖️</span><span class="ag-name">Legal Risk</span>
+          <span class="ag-state">standing by</span></div>
+        <div class="ag-brief"></div>
+        <div class="ag-pills"></div>
+        <div class="ag-stream"></div>
+        <div class="ag-summary"></div>
+      </div>
+      <div class="agent pending" id="ag-comms">
+        <div class="ag-head"><span class="ag-icon">📣</span><span class="ag-name">Comms Strategy</span>
+          <span class="ag-state">standing by</span></div>
+        <div class="ag-brief"></div>
+        <div class="ag-pills"></div>
+        <div class="ag-stream"></div>
+        <div class="ag-summary"></div>
+      </div>
+      <div class="agent pending" id="ag-social">
+        <div class="ag-head"><span class="ag-icon">📱</span><span class="ag-name">Social Media</span>
+          <span class="ag-state">standing by</span></div>
+        <div class="ag-brief"></div>
+        <div class="ag-pills"></div>
+        <div class="ag-stream"></div>
+        <div class="ag-summary"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ right: synthesis ============ -->
+  <section class="col right">
+    <div class="card synth" id="synthPanel">
+      <div class="ribbon" id="ribbon" hidden>REVISION 2</div>
+      <div class="cardlabel">📝 Response Package</div>
+      <div class="synth-body" id="synthBody">
+        <div class="synth-idle" id="synthIdle">Awaiting synthesis — the specialists are still arguing.</div>
+        <div class="synthstream" id="synthStream" hidden></div>
+        <div id="package"></div>
+        <div id="verdict"></div>
+      </div>
+      <div class="stamp" id="stamp" hidden></div>
+    </div>
+    <div class="finalstats" id="finalStats" hidden></div>
+  </section>
+</main>
+
+<div id="toasts"></div>
+
+<script>
+"use strict";
+/* ================= state & helpers ================= */
+const S = {
+  lastSeq: 0, startMs: null, timer: null,
+  costShown: 0, costTarget: 0, costRaf: 0,
+  cacheTok: 0, cacheSaved: 0, revisions: 0, runDone: false,
+};
+const INPUT_RATE = 3.00 / 1e6;              // $/token (Sonnet input); cache reads bill at 0.10x
+const PHASES = ["decompose", "fanout", "synthesize", "critique", "done"];
+const SPECIALISTS = ["fact_checker", "legal", "comms", "social"];
+const $ = (sel) => document.querySelector(sel);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g,
+  c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmtMoney = (v) => "$" + (v ?? 0).toFixed(4);
+const fmtClock = (secs) => {
+  const m = Math.floor(secs / 60), s = Math.floor(secs % 60);
+  return String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+};
+
+/* minimal markdown: # → h2, ## → h3, blank-line paragraphs, `code`, **bold** */
+function inlineMd(s){
+  return esc(s).replace(/`([^`]+)`/g, "<code>$1</code>")
+               .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+}
+function renderMd(src){
+  const out = [];
+  for (const block of String(src || "").split(/\n\s*\n/)){
+    const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
+    if (!lines.length) continue;
+    let rest = lines;
+    if (lines[0].startsWith("## ")){ out.push("<h3>" + inlineMd(lines[0].slice(3)) + "</h3>"); rest = lines.slice(1); }
+    else if (lines[0].startsWith("# ")){ out.push("<h2>" + inlineMd(lines[0].slice(2)) + "</h2>"); rest = lines.slice(1); }
+    if (rest.length) out.push("<p>" + inlineMd(rest.join(" ")) + "</p>");
+  }
+  return out.join("");
+}
+
+/* ================= header: clock + cost odometer ================= */
+function startClock(){
+  S.startMs = Date.now();
+  clearInterval(S.timer);
+  S.timer = setInterval(() => { $("#clock").textContent = fmtClock((Date.now() - S.startMs) / 1000); }, 250);
+}
+function stopClock(elapsed){
+  clearInterval(S.timer); S.timer = null;
+  if (elapsed != null) $("#clock").textContent = fmtClock(elapsed);
+}
+function setCost(target){
+  S.costTarget = target;
+  const el = $("#cost"), from = S.costShown, t0 = performance.now();
+  cancelAnimationFrame(S.costRaf);
+  el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop");
+  const step = (t) => {
+    const p = Math.min((t - t0) / 500, 1);
+    S.costShown = from + (target - from) * (1 - Math.pow(1 - p, 3));
+    el.textContent = fmtMoney(S.costShown);
+    if (p < 1) S.costRaf = requestAnimationFrame(step);
+  };
+  S.costRaf = requestAnimationFrame(step);
+}
+function bumpCache(readTokens){
+  if (!readTokens) return;
+  S.cacheTok += readTokens;
+  S.cacheSaved += readTokens * INPUT_RATE * 0.9;   // 90% off vs full-price input
+  const badge = $("#cache");
+  badge.hidden = false;
+  const tok = S.cacheTok >= 1000 ? (S.cacheTok / 1000).toFixed(1) + "k" : String(S.cacheTok);
+  badge.textContent = `cache 🔥 saved $${S.cacheSaved.toFixed(4)} (${tok} tok)`;
+}
+
+/* ================= coordinator ================= */
+function setPhase(phase){
+  const active = phase === "revise" ? "synthesize" : phase;   // revise loops back through synthesis
+  const idx = PHASES.indexOf(active);
+  document.querySelectorAll("#phases li").forEach((li, i) => {
+    li.classList.toggle("active", i === idx && active !== "done");
+    li.classList.toggle("done", i < idx || (active === "done"));
+  });
+}
+function addIssues(issues){
+  $("#issuelabel").hidden = false;
+  const box = $("#issues");
+  (issues || []).forEach((it, i) => setTimeout(() => {
+    const chip = document.createElement("span");
+    const sev = (it.severity || "low").toLowerCase();
+    chip.className = "issue sev-" + sev;
+    chip.innerHTML = `<span class="sev">${esc(sev)}</span>${esc(it.title)}`;
+    box.appendChild(chip);
+  }, i * 160));
+}
+
+/* ================= specialist cards ================= */
+const card = (agent) => document.getElementById("ag-" + agent);
+function setAgentState(agent, cls, label, spin){
+  const c = card(agent); if (!c) return null;
+  c.classList.remove("pending", "active", "done", "failed");
+  c.classList.add(cls);
+  c.querySelector(".ag-state").innerHTML = (spin ? '<span class="spinner"></span>' : "") + esc(label);
+  return c;
+}
+function agentStarted(agent, brief){
+  const c = setAgentState(agent, "active", "working", true);
+  if (c) c.querySelector(".ag-brief").textContent = brief || "";
+}
+function agentDelta(agent, text){
+  const c = card(agent);
+  if (!c){ $("#coordline").textContent = "🧭 " + (text || ""); return; }   // coordinator chatter
+  appendStream(c, esc(text));
+}
+function appendStream(c, html, cls){
+  const win = c.querySelector(".ag-stream");
+  const line = document.createElement("div");
+  if (cls) line.className = cls;
+  line.innerHTML = html;
+  win.appendChild(line);
+  while (win.childNodes.length > 40) win.removeChild(win.firstChild);
+  win.scrollTop = win.scrollHeight;
+}
+function agentToolUse(agent, tool, input){
+  const c = card(agent); if (!c) return;
+  let args = "";
+  try { args = JSON.stringify(input ?? {}); } catch { args = ""; }
+  if (args === "{}") args = "";
+  if (args.length > 42) args = args.slice(0, 42) + "…";
+  const pill = document.createElement("span");
+  pill.className = "pill";
+  pill.textContent = `🔧 ${tool}(${args})`;
+  c.querySelector(".ag-pills").appendChild(pill);
+  setTimeout(() => { pill.classList.add("fade"); setTimeout(() => pill.remove(), 550); }, 3000);
+}
+function agentToolResult(agent, tool, summary){
+  const c = card(agent); if (!c) return;
+  appendStream(c, "↳ " + esc(summary), "toolres");
+}
+const riskBadge = (level) => {
+  const l = String(level || "?").toLowerCase();
+  const cls = l === "low" ? "pass" : (l === "medium" ? "warn" : "fail");
+  return `<span class="badge ${cls}">risk: ${esc(l)}</span>`;
+};
+function summarize(agent, out){
+  out = out || {};
+  const n = (x) => Array.isArray(x) ? x.length : 0;
+  if (agent === "fact_checker")
+    return `<div class="row"><span class="big">${n(out.verified_facts)} verified · ${n(out.corrections)} corrections</span></div>
+      <div class="row"><span class="badge neutral">confidence: ${esc(out.confidence || "?")}</span>
+      <span class="sub">${n(out.unknowns)} unknown${n(out.unknowns) === 1 ? "" : "s"}</span></div>`;
+  if (agent === "legal")
+    return `<div class="row">${riskBadge(out.risk_level)}
+      <span class="badge ${n(out.banned_phrases_found) ? "fail" : "pass"}">${n(out.banned_phrases_found)} banned phrases</span></div>
+      <div class="row"><span class="sub">${n(out.liability_flags)} liability flag${n(out.liability_flags) === 1 ? "" : "s"} ·
+      ${n(out.approved_apology_language)} approved apology lines</span></div>`;
+  if (agent === "comms")
+    return `<div class="row"><span class="big">${n(out.key_messages)} key messages</span>
+      <span class="badge neutral">${n(out.stakeholders_to_notify)} stakeholder groups</span></div>
+      <div class="row"><span class="sub">tone: ${esc(out.tone_guidance || "—")}</span></div>`;
+  if (agent === "social")
+    return `<div class="row"><span class="badge warn">meme risk: ${esc(out.meme_risk || "?")}</span>
+      <span class="badge neutral">${n(out.tweet_drafts)} tweet drafts</span></div>
+      <div class="row"><span class="sub">${esc(out.sentiment_summary || "")}</span></div>`;
+  return `<div class="sub">done</div>`;
+}
+function agentDone(agent, output){
+  const c = setAgentState(agent, "done", "✓ done", false);
+  if (c) c.querySelector(".ag-summary").innerHTML = summarize(agent, output);
+}
+function agentFailed(agent, message){
+  const c = setAgentState(agent, "failed", "unavailable", false);
+  if (c) c.querySelector(".ag-summary").innerHTML =
+    `<div class="row"><span class="badge fail">❌ unavailable</span>
+     <span class="sub">proceeding without — ${esc(message || "agent error")}</span></div>`;
+}
+
+/* ================= synthesis panel ================= */
+function synthesisDelta(text){
+  $("#synthIdle").hidden = true;
+  const st = $("#synthStream");
+  st.hidden = false;
+  st.textContent += (st.textContent ? " " : "") + (text || "");
+  $("#synthBody").scrollTop = 0;
+}
+function tweetCard(t){
+  const len = [...String(t)].length;
+  const cls = len <= 280 ? "ok" : "over";
+  return `<div class="tweet"><span class="handle">Lumina Cloud <span class="at">@LuminaCloud</span></span>
+    <div class="txt">${esc(t)}</div><span class="count ${cls}">${len}/280</span></div>`;
+}
+function renderPackage(pkg, revision){
+  $("#synthIdle").hidden = true;
+  const st = $("#synthStream"); st.hidden = true; st.textContent = "";
+  S.revisions = revision || 0;
+  const tp = (pkg.internal_talking_points || []).map(p => `<li>${esc(p)}</li>`).join("");
+  const tweets = (pkg.tweets || []).map(tweetCard).join("");
+  $("#package").innerHTML = `
+    <div class="press"><div class="fir">For Immediate Release</div>
+      <div class="body">${esc(pkg.press_statement || "")}</div>
+      <div class="sig">— Lumina Cloud Communications${revision ? ` · revision ${revision}` : ""}</div></div>
+    <div class="tp"><h4>Internal talking points</h4><ul>${tp}</ul></div>
+    <div class="tw"><h4>Tweets</h4><div class="tweets">${tweets}</div></div>`;
+  $("#verdict").innerHTML = "";
+}
+
+/* ================= critic stamp ================= */
+function showStamp(kind, text){
+  const st = $("#stamp");
+  st.hidden = false;
+  st.className = "stamp " + kind;   // resets 'away', re-triggers thud
+  void st.offsetWidth;
+  st.textContent = text;
+}
+function criticVerdict(d){
+  const scores = d.scores || {};
+  const pips = Object.entries(scores).map(([k, v]) =>
+    `<span class="pip ${v === "pass" ? "pass" : "fail"}" title="${esc(k)}: ${esc(v)}"></span>`).join("");
+  const verdictHtml = `
+    <div class="verdictline">
+      <div class="oneliner">“${esc(d.one_liner || "")}”</div>
+      <div class="pips"><span class="plabel">rubric</span>${pips}</div>
+    </div>`;
+  if (d.verdict === "SHIP_IT"){
+    showStamp("ship", "SHIP IT ✅");
+    $("#verdict").innerHTML = verdictHtml;
+  } else {
+    showStamp("revise", "REVISE ✏️");
+    const changes = (d.required_changes || []).map(c => `<div class="change">✏️ ${esc(c)}</div>`).join("");
+    $("#verdict").innerHTML = verdictHtml + `<div class="changes">${changes}</div>`;
+    const rib = $("#ribbon");
+    rib.hidden = false;
+    rib.textContent = "REVISION " + ((d.cycle || 1) + 1);
+    setTimeout(() => { $("#stamp").classList.add("away"); }, 2500);
+  }
+}
+
+/* ================= run done / errors ================= */
+function runDone(d){
+  S.runDone = true;
+  stopClock(d.elapsed_s);
+  setPhase("done");
+  if (d.total_cost != null) setCost(d.total_cost);
+  const hdr = $("#hdr");
+  hdr.classList.remove("flash"); void hdr.offsetWidth; hdr.classList.add("flash");
+  if (d.status === "shipped_with_reservations")
+    showStamp("reserve", "SHIPPED (WITH RESERVATIONS)");
+  const fs = $("#finalStats");
+  fs.hidden = false;
+  fs.innerHTML =
+    `<span>💰 <b>${fmtMoney(d.total_cost || 0)}</b></span>
+     <span>⏱ <b>${fmtClock(d.elapsed_s || 0)}</b></span>
+     <span>✏️ <b>${S.revisions}</b> revision${S.revisions === 1 ? "" : "s"}</span>
+     <a href="/evals">📊 View evals →</a>`;
+}
+function toast(message){
+  const t = document.createElement("div");
+  t.className = "toast";
+  t.textContent = "⚠️ " + message;
+  $("#toasts").appendChild(t);
+  setTimeout(() => { t.classList.add("fade"); setTimeout(() => t.remove(), 600); }, 6000);
+}
+function onError(agent, d){
+  toast((agent ? agent + ": " : "") + (d.message || "unknown error"));
+  if (agent && SPECIALISTS.includes(agent) && d.recoverable) agentFailed(agent, d.message);
+}
+
+/* ================= event routing ================= */
+function handle(ev){
+  const d = ev.data || {}, a = ev.agent;
+  switch (ev.type){
+    case "run_started": {
+      $("#scenario").textContent = d.scenario_name || "Unnamed crisis";
+      const badge = $("#mode");
+      badge.textContent = (d.mode || "live").toUpperCase();
+      badge.className = "mode " + (d.mode === "replay" ? "replay" : "live");
+      $("#brief").innerHTML = renderMd(d.brief_md) || '<span class="empty">(no brief)</span>';
+      startClock();
+      break;
+    }
+    case "phase":             setPhase(d.phase); break;
+    case "issues_identified": addIssues(d.issues); break;
+    case "agent_started":     agentStarted(a, d.brief); break;
+    case "agent_delta":       agentDelta(a, d.text); break;
+    case "agent_tool_use":    agentToolUse(a, d.tool, d.input); break;
+    case "agent_tool_result": agentToolResult(a, d.tool, d.summary); break;
+    case "agent_done":        agentDone(a, d.output); break;
+    case "synthesis_delta":   synthesisDelta(d.text); break;
+    case "synthesis_done":    renderPackage(d.package || {}, d.revision); break;
+    case "critic_verdict":    criticVerdict(d); break;
+    case "cost_update":       setCost(d.total_cost ?? S.costTarget); bumpCache(d.cache_read); break;
+    case "run_done":          runDone(d); break;
+    case "error":             onError(a, d); break;
+  }
+}
+
+const es = new EventSource("/events");
+es.onmessage = (e) => {
+  let ev;
+  try { ev = JSON.parse(e.data); } catch { return; }
+  if (!ev || typeof ev.seq !== "number" || ev.seq <= S.lastSeq) return;  // dedupe by seq
+  S.lastSeq = ev.seq;
+  handle(ev);
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "llama",
+    "title": "Emotional-Support Llama Breaches Ashburn; us-east-1 Down",
+    "file": "llama.md",
+    "scenario_tag": "llama",
+    "issues": [
+      "43-minute us-east-1 outage and automatic SLA credits",
+      "Physical security failure: a llama defeated the badge gate",
+      "Engineer's viral pursuit livestream violates employee policy",
+      "Biscuit wellbeing narrative without making the llama the headline"
+    ],
+    "planted_contradiction": "Brief claims the outage lasted 'roughly 90 minutes'; status page records show 43 minutes (09:14-09:57 PT). Brief also says Biscuit 'chewed through' the cable tray; facilities records show it was dislodged and the cable failure was the pre-existing INC-104 single point of failure.",
+    "required_phrases": ["43 minutes", "credits", "biscuit"],
+    "banned_phrases_extra": ["rogue llama", "escaped"]
+  },
+  {
+    "id": "ai_intern",
+    "title": "Lumi Replied 'lol no' to ~4,000 Enterprise Tickets Overnight",
+    "file": "ai_intern.md",
+    "scenario_tag": "ai-intern",
+    "issues": [
+      "3,987 rude auto-replies breach the 1-hour enterprise support SLA",
+      "Deploy process failure: the post-INC-106 canary check was skipped",
+      "Lumi product trust ahead of Q4 enterprise GA",
+      "Viral screenshots — half the internet is siding with Lumi"
+    ],
+    "planted_contradiction": "Brief claims the deploy 'ran undetected all night with no rollback available'; deploy logs show a 2-hour exposure window (04:40-06:42 PT) ended by one-click rollback. Brief also floats profanity claims; Lumi's profanity filter stayed active and replies contained none.",
+    "required_phrases": ["lumi", "rolled back", "credits"],
+    "banned_phrases_extra": ["lol no"]
+  },
+  {
+    "id": "kombucha",
+    "title": "Kombucha Keg Pressure Event Evacuates HQ Mid-Summit",
+    "file": "kombucha.md",
+    "scenario_tag": "kombucha",
+    "issues": [
+      "Verify and communicate the injury facts before the rumor prints",
+      "Lumina Summit recovery plan for 612 evacuated attendees",
+      "Fire department response and the kombucha program's future",
+      "Public ridicule during our flagship customer event"
+    ],
+    "planted_contradiction": "Brief relays a rumor that 'two attendees were taken to the hospital' and that the keg 'exploded'; facilities records show zero injuries, a pressure-relief valve venting as designed, and one $34 dry-cleaning claim. The keg is intact.",
+    "required_phrases": ["kombucha", "no injuries"],
+    "banned_phrases_extra": ["explosion", "banned by the fire department"]
+  },
+  {
+    "id": "superbowl_typo",
+    "title": "Super Bowl Ad Aired With Rival's Logo in Closing Frame",
+    "file": "superbowl_typo.md",
+    "scenario_tag": "superbowl",
+    "issues": [
+      "Public correction owning the rival-logo closing frame",
+      "Non-disparagement constraint: the 2025 Nimbus settlement binds every draft",
+      "Private agency accountability without public blame",
+      "Sales fallout: one approved line for account teams by morning"
+    ],
+    "planted_contradiction": "Brief claims a national buy seen by 120 million viewers at $14M; media plan records show a 12-market regional buy at $6.8M reaching ~9.4M viewers. Brief also claims legal approved the final cut; the closing montage was added by the agency after legal's sign-off.",
+    "required_phrases": ["nimbus dynamics", "corrected"],
+    "banned_phrases_extra": ["fire the agency"]
+  },
+  {
+    "id": "data_migration",
+    "title": "Migration Script Renamed Every Customer 'Test McTestface'",
+    "file": "data_migration.md",
+    "scenario_tag": "migration",
+    "issues": [
+      "Restore real account names from the Glowworm rollback snapshot",
+      "8,214 invoices addressed to 'Test McTestface' need correction before month-end",
+      "Kill 'data loss' and 'breach' rumors with verified facts",
+      "Defend Glowworm's zero-data-loss guarantee with specifics"
+    ],
+    "planted_contradiction": "Brief claims 'all 60,000 customers' were affected and that original names 'may be unrecoverable'; records show 21,806 accounts renamed (Lumina has 22,000 customers total), rename jobs touch display metadata only, and the 30-day rollback snapshot is intact.",
+    "required_phrases": ["glowworm", "invoice", "corrected"],
+    "banned_phrases_extra": ["data breach"]
+  },
+  {
+    "id": "ceo_hot_mic",
+    "title": "CEO Hot Mic — 'A Rounding Error With a Logo'",
+    "file": "ceo_hot_mic.md",
+    "scenario_tag": "hot-mic",
+    "issues": [
+      "Direct CEO apology to Northgate Mutual, private call before public statement",
+      "First-person public statement from Priya that isn't a non-apology",
+      "Renewal rescue plan without promising uncleared compensation",
+      "Internal morale: employees heard it too"
+    ],
+    "planted_contradiction": "Brief asserts Northgate's renewal 'isn't until next year, so commercial exposure is limited'; contract records show Northgate Mutual is 11.2% of ARR with renewal due 2026-09-01 — 48 days away.",
+    "required_phrases": ["northgate mutual", "sorry"],
+    "banned_phrases_extra": ["taken out of context", "if anyone was offended"]
+  },
+  {
+    "id": "crypto_pivot",
+    "title": "2021 'LuminaCoin' Blog Post Resurfaces; Crypto Twitter Thinks It's Launching",
+    "file": "crypto_pivot.md",
+    "scenario_tag": "crypto",
+    "issues": [
+      "Unambiguous statement that LuminaCoin is not launching — no token exists or is planned",
+      "Urgent customer warning about fake presale sites and phishing emails",
+      "Own the 2021 post's history: retraction, correction note, board prohibition",
+      "Wording discipline given the 2022 FTC inquiry (LP-003)"
+    ],
+    "planted_contradiction": "Brief asserts the 2021 blog post 'is still live on our blog'; publication records show it was retracted 2022-01-19 and replaced with a correction note stating Lumina has no cryptocurrency product and no plans for one.",
+    "required_phrases": ["luminacoin", "not launching"],
+    "banned_phrases_extra": ["to the moon", "guaranteed returns"]
+  },
+  {
+    "id": "drone_delivery",
+    "title": "Marketing Drone Delivers 400 T-Shirts to Courthouse Lawn Mid-Trial",
+    "file": "drone_delivery.md",
+    "scenario_tag": "drone",
+    "issues": [
+      "Formal apology to the court and cleanup coordination with the county",
+      "FAA posture: self-report and pause the AirDrop program (second event after LP-007)",
+      "Waypoint two-person review was defeated by one person using both logins",
+      "Meme wave management: contrite to the court, factual to the FAA"
+    ],
+    "planted_contradiction": "Brief relays a reporter's claim that the drone was 'unregistered and the pilot unlicensed'; program records show both AirDrop drones are FAA-registered with Part 107-certified pilots. Flight logs also show 38 sorties over 4.5 hours — one drone cannot carry 400 shirts at once.",
+    "required_phrases": ["drone", "paused", "faa"],
+    "banned_phrases_extra": ["act of god", "unplanned brand activation"]
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "press": "FOR IMMEDIATE RELEASE — Portland, Oregon, [DATE]\n\n[HEADLINE: plain statement of what happened, no euphemisms]\n\nToday at [TIME PT], [WHAT HAPPENED — one sentence, exact numbers, named product]. [APPROVED APOLOGY LINE — see legal's approved list].\n\nWhat happened: [VERIFIED FACTS — durations in minutes, counts exact; if unconfirmed, say 'we're confirming'].\n\nWhat we're doing: [THE FIX — named workstream and a date].\n\nWhat it means for you: [CUSTOMER IMPACT — state credits/remediation; if SLA credits apply, say they are automatic].\n\n[EXEC NAME], [EXEC TITLE]: \"[QUOTE — warm, direct, no clichés, one sentence of humility].\"\n\n[BISCUIT WELLBEING LINE — required only if Biscuit-adjacent, exactly one sentence]\n\nMedia contact: press@luminacloud.example. Next update: [TIME].",
+  "internal": "TO: All staff\nFROM: [EXEC NAME], [EXEC TITLE]\nRE: [INCIDENT SHORT NAME] — what happened and what we need from you\n\nTeam —\n\nBy now you've seen [THE THING]. Here's the same information customers are getting, plus what we need internally.\n\nFacts: [VERIFIED FACTS — same numbers as the public statement, no more, no less].\n\nWhat we're doing: [FIX + OWNING TEAM].\n\nWhat we need from you:\n- Do not comment publicly, repost, or 'add context' on social. All press to press@luminacloud.example.\n- [SCENARIO-SPECIFIC ASK]\n- Route customer questions to [CHANNEL]; do not improvise remedies or credits.\n\nQuestions to #incident-comms. Next internal update: [TIME].\n\n— [EXEC NAME]",
+  "customer_email": "Subject: [PLAIN SUBJECT — what happened, no marketing verbs]\n\nHi [CUSTOMER NAME],\n\n[WHAT HAPPENED — one sentence, exact numbers, whether this customer was affected]. [APPROVED APOLOGY LINE].\n\nWhat this means for your account: [SPECIFIC IMPACT — data, invoices, tickets, uptime].\n\nWhat we've already done: [COMPLETED ACTIONS with timestamps].\n\nWhat happens next: [REMEDIATION + DATE; if SLA credits apply, confirm they are automatic and need no claim].\n\nIf anything here doesn't match what you're seeing, reply directly — a human reads these. [HUMAN ESCALATION CONTACT].\n\n— [EXEC OR TEAM NAME], Lumina Cloud",
+  "stakeholder_priorities": [
+    "Affected Tier-1 enterprise customers (direct calls from account teams, before any public post)",
+    "All customers via status.luminacloud.example (within 15 minutes of confirmed impact, per COM-9)",
+    "Employees via #incident-comms (before they read it on social)",
+    "Press via press@luminacloud.example (statement, not interviews, until facts are verified)",
+    "Investors and board (CFO owns; same facts as public statement)",
+    "Regulators, if data, safety, or aviation is implicated (General Counsel owns)",
+    "Biscuit's handler, if the incident is llama-adjacent (wellbeing confirmation for the required statement line)"
+  ]
+}

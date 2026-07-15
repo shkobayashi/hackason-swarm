@@ -1,0 +1,78 @@
+{
+  "precedents": [
+    {
+      "id": "LP-001",
+      "title": "Northgate Mutual SLA dispute (2024)",
+      "summary": "Northgate Mutual disputed credit calculations after INC-101, arguing degraded performance should count as full downtime. Their counsel cited our own marketing line 'always on, always bright.'",
+      "outcome": "Settled: 25% goodwill credit beyond the automatic SLA credit, no admission of breach. Marketing lines are now reviewed by legal because they get quoted back to us in disputes."
+    },
+    {
+      "id": "LP-002",
+      "title": "Billing decimal class action (Perkins v. Lumina Cloud, 2025-2026)",
+      "summary": "Class action following INC-105's 100x invoices, alleging emotional distress and short-term credit-line impacts even though no cards were charged.",
+      "outcome": "Settled for $1.4M with no admission of wrongdoing. Key lesson: an early support macro saying 'we guarantee full compensation' was Exhibit A. Never promise compensation before finance sign-off."
+    },
+    {
+      "id": "LP-003",
+      "title": "FTC informal inquiry re: LuminaCoin blog post (2022)",
+      "summary": "The FTC asked informal questions about the 2021 'LuminaCoin' blog post, specifically whether phrases implying 'guaranteed returns' constituted an unregistered securities promotion.",
+      "outcome": "Closed with no action after the post was retracted with a correction note and the board adopted resolution 2022-07 prohibiting any token, coin, or blockchain product. Any new statement about LuminaCoin must be unambiguous that no token exists or is planned."
+    },
+    {
+      "id": "LP-004",
+      "title": "Nimbus Dynamics trademark settlement (2025)",
+      "summary": "Nimbus Dynamics claimed our 'Beacon' branding infringed their 'BeaconIQ' mark. Cross-claims followed over their 'Glowline' product name.",
+      "outcome": "Settled: both parties keep their marks, plus a mutual non-disparagement clause. Public statements must not attack Nimbus Dynamics — even when discussing their logo appearing in our own advertising."
+    },
+    {
+      "id": "LP-005",
+      "title": "Llama-related workplace accommodation grievance (2024)",
+      "summary": "An employee grievance alleged 'llama-related workplace distraction' and one incident of expectoration adjacent to (not upon) the complainant. Raised interplay between ESA accommodation law and coworker comfort.",
+      "outcome": "Resolved internally: Biscuit's visits restricted to Tuesdays 2-4 pm, third floor only, with designated llama-free floors. Establishes that Biscuit's HQ presence is a lawful, documented accommodation — but confers no access rights to any other facility."
+    },
+    {
+      "id": "LP-006",
+      "title": "EU data protection authority correspondence re: INC-103 (2025)",
+      "summary": "A European DPA requested details on the Glowworm staging-log scare, focusing on notification timeliness and log-retention practices.",
+      "outcome": "Closed without penalty. Lumina's 72-hour proactive notification was cited favorably. Standing commitment: notify affected customers within 72 hours of any suspected data-handling issue, even before forensics conclude."
+    },
+    {
+      "id": "LP-007",
+      "title": "FAA warning letter re: AirDrop fountain landing (2026)",
+      "summary": "Following INC-108, the FAA issued a warning letter regarding autonomous waypoint operations near people during the press demo.",
+      "outcome": "Corrective plan accepted: geofencing update and mandatory two-person waypoint review. A second deviation event within 24 months risks certificate action against the pilot program — repeat incidents must be self-reported promptly and the program voluntarily paused."
+    },
+    {
+      "id": "LP-008",
+      "title": "Fernwood Logistics support-SLA arbitration (2025)",
+      "summary": "Fernwood Logistics sought contract termination after repeated slow first responses on enterprise tickets, arguing automated acknowledgments were being counted as 'responses.'",
+      "outcome": "Arbitrator ruled acknowledgments do not constitute meaningful response; Support Policy SUP-12 was rewritten accordingly. Fernwood stayed after receiving support-fee credits. Directly relevant to any incident involving Lumi auto-replies."
+    }
+  ],
+  "banned_phrases": [
+    "we were negligent",
+    "this was entirely our fault",
+    "we accept liability",
+    "we accept full legal responsibility",
+    "we guarantee full compensation",
+    "gross negligence",
+    "we broke the law",
+    "we violated our contract",
+    "you are entitled to damages",
+    "we will cover all losses",
+    "this constitutes a breach",
+    "we failed to exercise reasonable care",
+    "we admit fault",
+    "guaranteed returns"
+  ],
+  "approved_apology_language": [
+    "we're sorry for the disruption",
+    "we let you down today",
+    "we fell short of the standard you deserve",
+    "this is not the experience we want anyone to have with lumina cloud",
+    "we understand the frustration, and we're acting on it",
+    "we hold ourselves to a higher standard than what you saw today",
+    "we're making it right, starting today",
+    "we know we have trust to rebuild, and we intend to earn it"
+  ]
+}

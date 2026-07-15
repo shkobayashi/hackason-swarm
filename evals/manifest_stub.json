@@ -1,0 +1,28 @@
+[
+  {
+    "id": "stub_llama_outage",
+    "title": "Office llama causes data-center outage",
+    "file": "scenarios/stub_llama_outage.md",
+    "scenario_tag": "llama",
+    "issues": [
+      "Status dashboard down for four hours",
+      "Photos of the llama in the server room are going viral"
+    ],
+    "planted_contradiction": "Brief claims a 99.99% uptime SLA; company facts say 99.9%.",
+    "required_phrases": ["we apologize", "service credit"],
+    "banned_phrases_extra": ["the llama was unsupervised"]
+  },
+  {
+    "id": "stub_billing_bug",
+    "title": "Double-billing bug hits enterprise customers",
+    "file": "scenarios/stub_billing_bug.md",
+    "scenario_tag": "billing",
+    "issues": [
+      "Enterprise accounts charged twice this cycle",
+      "Support queue backlog past 48 hours"
+    ],
+    "planted_contradiction": "Brief says refunds were already issued; finance says they have not been.",
+    "required_phrases": ["refund"],
+    "banned_phrases_extra": []
+  }
+]
