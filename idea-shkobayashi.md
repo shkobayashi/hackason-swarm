@@ -17,3 +17,6 @@
 9	Medical Second Opinion Swarm (demo purposes only, educational/non-medical use) — Submit a case summary (synthetic data) → specialists for "differential diagnosis," "recommended tests," "literature search," and "patient-facing explanation" work in parallel → a supervisor compiles a chart-style summary (must clearly state synthetic-data-only limitation).
 
 10	Real Estate Investment Due Diligence Swarm — Submit property information → specialists for "rental market rates," "repair risk," "neighborhood environment," and "loan terms" research in parallel → a supervisor outputs an investment decision memo (Word/PDF).
+
+
+https://urldefense.com/v3/__https://us05web.zoom.us/j/83363527400?pwd=CUERJkBgu3AWOz591btBBrKZ8ljDf2.1__;!!JW1S-MuWaw!ZTO2WqDHgnXoSnc_Y3JOqA-8q2pkGyTYIxw2oZMqx16f5-uIYGtynKukWX1dgvSzp9xxwU28bJP_Q2JWZnprFnt69cuT6w$
