@@ -19,4 +19,4 @@
 10	Real Estate Investment Due Diligence Swarm — Submit property information → specialists for "rental market rates," "repair risk," "neighborhood environment," and "loan terms" research in parallel → a supervisor outputs an investment decision memo (Word/PDF).
 
 
-https://urldefense.com/v3/__https://us05web.zoom.us/j/83363527400?pwd=CUERJkBgu3AWOz591btBBrKZ8ljDf2.1__;!!JW1S-MuWaw!ZTO2WqDHgnXoSnc_Y3JOqA-8q2pkGyTYIxw2oZMqx16f5-uIYGtynKukWX1dgvSzp9xxwU28bJP_Q2JWZnprFnt69cuT6w$
+[https://urldefense.com/v3/__https://us05web.zoom.us/j/83363527400?pwd=CUERJkBgu3AWOz591btBBrKZ8ljDf2.1__;!!JW1S-MuWaw!ZTO2WqDHgnXoSnc_Y3JOqA-8q2pkGyTYIxw2oZMqx16f5-uIYGtynKukWX1dgvSzp9xxwU28bJP_Q2JWZnprFnt69cuT6w$](https://us05web.zoom.us/j/83390101434?pwd=8MbBOUhJHfvuaYytIa3jDLqaUS2Lqf.1)
