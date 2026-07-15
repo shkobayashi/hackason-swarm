@@ -16,7 +16,6 @@ from __future__ import annotations
 
 import argparse
 import datetime
-import inspect
 import json
 import pathlib
 import sys
@@ -111,26 +110,9 @@ def build_tasks(manifest_path: str = DEFAULT_MANIFEST) -> list[dict]:
 
 # ── swarm invocation ───────────────────────────────────────────────────────────
 def _call_run_swarm(run_swarm, task, bus, client):
-    """Call run_swarm matching whatever signature the orchestrator settled on."""
-    params = inspect.signature(run_swarm).parameters
-    brief = task["scenario"]
-    candidates = {
-        "brief_md": brief,
-        "brief": brief,
-        "scenario_md": brief,
-        "scenario": brief,
-        "scenario_name": task["title"],
-        "name": task["title"],
-        "run_id": task["id"],
-        "bus": bus,
-        "event_bus": bus,
-        "client": client,
-    }
-    kwargs = {k: v for k, v in candidates.items() if k in params and v is not None}
-    try:
-        return run_swarm(**kwargs)
-    except TypeError:
-        return run_swarm(brief, bus)  # last-resort positional call
+    """run_swarm(scenario_path, bus, client=...) reads the brief from disk."""
+    scenario_path = _resolve("scenarios") / task["scenario_file"]
+    return run_swarm(str(scenario_path), bus, client=client)
 
 
 def run_single_task(task, client) -> dict:
