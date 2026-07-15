@@ -1,0 +1,87 @@
+{
+  "mentions": [
+    {"scenario_tag": "llama", "handle": "@cloudwatcher", "text": "a LLAMA took down us-east-1 and honestly? valid", "likes": 48000},
+    {"scenario_tag": "llama", "handle": "@llamastanaccount", "text": "BISCUIT DID NOTHING WRONG. the badge gate failed biscuit. we should all be so lucky as to fail upward into a datacenter", "likes": 88000},
+    {"scenario_tag": "llama", "handle": "@uptimegoblin", "text": "hearing us-east-1 was down NINETY minutes. lumina's status page says 43 like we can't count. which is it", "likes": 12000},
+    {"scenario_tag": "llama", "handle": "@sre_regrets", "text": "the engineer livestreaming the llama chase instead of joining the incident bridge is the most relatable thing I've ever seen", "likes": 31000},
+    {"scenario_tag": "llama", "handle": "@NorthgateITOps", "text": "Our failover held. Barely. We pay seven figures for us-east-1 and the postmortem better contain more engineering than llama puns. @LuminaCloud", "likes": 1800},
+    {"scenario_tag": "llama", "handle": "@CloudTruthDaily", "text": "Concerned to see another Lumina outage. At Nimbus Dyn— at OTHER providers, badge gates famously work. Just an observation. (not affiliated with anyone)", "likes": 210},
+    {"scenario_tag": "llama", "handle": "@GigaChadOnChain", "text": "a llama causing a cloud outage is why you self-custody your compute. also is the llama tokenized. asking for my DAO", "likes": 940},
+
+    {"scenario_tag": "ai-intern", "handle": "@enterprise_erin", "text": "Opened a P1 at 5am. Lumina's AI replied 'lol no'. I have screenshots. My CIO has screenshots. Our lawyers have screenshots.", "likes": 22000},
+    {"scenario_tag": "ai-intern", "handle": "@promptlybroken", "text": "lumi told a Fortune 500 CTO 'sounds like a you problem'. the AI has achieved my exact energy and must be stopped", "likes": 67000},
+    {"scenario_tag": "ai-intern", "handle": "@helpdeskhero", "text": "in lumi's defense, 'lol no' is the objectively correct answer to 'can you expedite this'", "likes": 15000},
+    {"scenario_tag": "ai-intern", "handle": "@itprocurement_pam", "text": "Vendor risk assessment updated. New row: 'AI intern rudeness'. Weighting: high.", "likes": 8400},
+    {"scenario_tag": "ai-intern", "handle": "@CloudTruthDaily", "text": "AI support that insults enterprise customers. Wild. Couldn't be companies with QA processes. (still not affiliated with Nimbus Dynamics)", "likes": 480},
+    {"scenario_tag": "ai-intern", "handle": "@GigaChadOnChain", "text": "an AI told 4000 suits 'lol no' overnight. unfathomably based. is there a token", "likes": 1200},
+
+    {"scenario_tag": "kombucha", "handle": "@summitattendee_raj", "text": "at the Lumina customer summit and a kombucha keg just went off like a depth charge. fire trucks. 600 people in lanyards on the lawn. 10/10 conference, would evacuate again", "likes": 19000},
+    {"scenario_tag": "kombucha", "handle": "@pdxfirewatcher", "text": "Portland Fire responding to a 'fermentation-related pressure event' at a tech HQ is the most Portland incident report ever filed", "likes": 44000},
+    {"scenario_tag": "kombucha", "handle": "@kombuchakevin", "text": "the SCOBY has unionized", "likes": 52000},
+    {"scenario_tag": "kombucha", "handle": "@FernwoodCTO", "text": "Flew 2,000 miles for the Lumina Summit keynote and I'm standing in a parking lot because of artisanal soda. Reevaluating several decisions, renewal included.", "likes": 2600},
+    {"scenario_tag": "kombucha", "handle": "@CloudTruthDaily", "text": "Kombucha detonations. Llamas. What's next over at Lumina? (asking for a competitor. friend. asking for a friend)", "likes": 350},
+    {"scenario_tag": "kombucha", "handle": "@GigaChadOnChain", "text": "fermentation is just proof-of-stake for tea. lumina accidentally based again. still waiting on the token", "likes": 780},
+
+    {"scenario_tag": "superbowl", "handle": "@admetrics_annie", "text": "Lumina Cloud just paid Super Bowl money to close their ad on their competitor's logo. tomorrow's agency review meeting is going to be appointment television", "likes": 71000},
+    {"scenario_tag": "superbowl", "handle": "@couchQBcritic", "text": "best super bowl ad twist ending in years. genuinely did not see the rival logo coming. neither did lumina apparently", "likes": 28000},
+    {"scenario_tag": "superbowl", "handle": "@brandingbrett", "text": "in the agency's defense, both logos are blue", "likes": 40000},
+    {"scenario_tag": "superbowl", "handle": "@meridianops_dan", "text": "We standardized our whole stack on Lumina and their own ad just told my board to go look at Nimbus Dynamics. Cool. Cool cool cool.", "likes": 3100},
+    {"scenario_tag": "superbowl", "handle": "@CloudTruthDaily", "text": "Nothing to add. The ad speaks for itself. (not affiliated with Nimbus Dynamics, whose logo looked great by the way)", "likes": 5600},
+    {"scenario_tag": "superbowl", "handle": "@GigaChadOnChain", "text": "shouting out your competitor mid-superbowl is the most decentralized marketing move ever. lumina keeps accidentally winning", "likes": 650},
+
+    {"scenario_tag": "migration", "handle": "@TestMcTestface", "text": "hi. apparently I now own 22,000 companies. taking meetings. serious inquiries only", "likes": 94000},
+    {"scenario_tag": "migration", "handle": "@invoice_irene", "text": "Our AP department just received a $48,000 invoice addressed to 'Test McTestface'. Per policy we cannot remit payment to an entity that does not exist. Good luck with month-end, @LuminaCloud.", "likes": 26000},
+    {"scenario_tag": "migration", "handle": "@dbadave", "text": "the migration script was reportedly called cleanup_v2_FINAL.py and honestly the Glowworm devs are all of us", "likes": 18000},
+    {"scenario_tag": "migration", "handle": "@procurement_pete", "text": "update from the vendor master data team: they are currently lying down", "likes": 7700},
+    {"scenario_tag": "migration", "handle": "@CloudTruthDaily", "text": "Data integrity is table stakes in this industry. Some clouds understand that. (a neutral, unaffiliated observation)", "likes": 290},
+    {"scenario_tag": "migration", "handle": "@GigaChadOnChain", "text": "Test McTestface is the anonymous founder this industry needs. token when", "likes": 1100},
+
+    {"scenario_tag": "hot-mic", "handle": "@conferencemicguy", "text": "cloudscale hot mic: lumina CEO calling their biggest customer 'a rounding error with a logo'. the AV tech who didn't cut the feed deserves a statue", "likes": 120000},
+    {"scenario_tag": "hot-mic", "handle": "@NorthgateITOps", "text": "A rounding error with a logo. We heard. Everyone heard. Our renewal committee, which meets next month, also heard.", "likes": 54000},
+    {"scenario_tag": "hot-mic", "handle": "@spreadsheet_steve", "text": "'a rounding error with a logo' is going on my tombstone and also on slide 1 of Northgate's deck to Nimbus Dynamics", "likes": 34000},
+    {"scenario_tag": "hot-mic", "handle": "@corpcommsCarla", "text": "somewhere right now a comms director is on draft nine of a statement, whispering the approved apology language like a prayer", "likes": 23000},
+    {"scenario_tag": "hot-mic", "handle": "@CloudTruthDaily", "text": "We would simply never describe a valued customer as a rounding error. DMs are open, Northgate. (unaffiliated. totally unaffiliated)", "likes": 8000},
+    {"scenario_tag": "hot-mic", "handle": "@GigaChadOnChain", "text": "CEO speaking her truth into a hot mic is honestly alpha behavior. what's the ticker", "likes": 900},
+
+    {"scenario_tag": "crypto", "handle": "@GigaChadOnChain", "text": "LUMINACOIN CONFIRMED. the 2021 blog post was the roadmap all along. cloud-compute-backed token. presale WHERE", "likes": 41000},
+    {"scenario_tag": "crypto", "handle": "@onchainoracle", "text": "there is no contract address, no whitepaper, no token. it's a retracted blog post from 2021. anyway I've allocated 40% of my portfolio", "likes": 17000},
+    {"scenario_tag": "crypto", "handle": "@rugwatch_ryan", "text": "PSA: at least three fake 'LuminaCoin presale' sites went live in the past hour. do NOT connect your wallet. this is a scam harvesting a rumor.", "likes": 29000},
+    {"scenario_tag": "crypto", "handle": "@web3wanda", "text": "the 'roadmap' is literally a correction note saying 'we have no crypto product and no plans for one'. bullish. corrections are just delayed announcements", "likes": 12000},
+    {"scenario_tag": "crypto", "handle": "@FernwoodCTO", "text": "Our security team is now fielding phishing emails about a 'LuminaCoin employee allocation'. Kill this narrative today please, @LuminaCloud.", "likes": 3300},
+    {"scenario_tag": "crypto", "handle": "@CloudTruthDaily", "text": "Crypto rumors now. Llamas, kombucha, tokens. A very serious infrastructure company. (impartial industry commentary)", "likes": 610},
+
+    {"scenario_tag": "drone", "handle": "@courthousereporter_kim", "text": "Trial in recess after a drone spent the morning carpet-bombing the courthouse lawn with 400 tech-conference t-shirts. Judge is quote 'considering contempt options for the sky'.", "likes": 88000},
+    {"scenario_tag": "drone", "handle": "@publicdefender_pat", "text": "my client's hearing was delayed by promotional airfare. the shirts say 'Shine On'. the judge does not want to shine on", "likes": 45000},
+    {"scenario_tag": "drone", "handle": "@dronelawdan", "text": "38 sorties over 4.5 hours means the drone RETURNED TO BASE 37 TIMES and was reloaded each time by someone who asked zero questions. flawless automation, zero supervision. lumina in a nutshell", "likes": 33000},
+    {"scenario_tag": "drone", "handle": "@meridianops_dan", "text": "Our general counsel was AT that courthouse today. She now owns six Lumina t-shirts and zero remaining patience.", "likes": 5200},
+    {"scenario_tag": "drone", "handle": "@CloudTruthDaily", "text": "FAA-registered? Perhaps. Judgment-registered? (a neutral question from a neutral party)", "likes": 430},
+    {"scenario_tag": "drone", "handle": "@GigaChadOnChain", "text": "airdropping physical merch onto a courthouse is the most web3 thing a cloud company has ever done. lumina cannot stop accidentally winning", "likes": 1500}
+  ],
+  "past_viral_posts": [
+    {
+      "text": "We're aware some Beacon dashboards are rendering in Comic Sans. Root cause: a font fallback. Your metrics are unaffected. Your dignity may vary.",
+      "likes": 210000,
+      "lesson": "Deadpan honesty outperforms corporate gloss. Owning the small stuff builds credit we spend on the big stuff."
+    },
+    {
+      "text": "my landlord is a demon",
+      "likes": 340000,
+      "lesson": "Our most-liked post ever was an accident (INC-102). The two-approver rule exists because of it — and because the internet rewards humanity, not polish."
+    },
+    {
+      "text": "Please welcome our newest team member. Badge LUM-0007. Office access only. She has already exceeded expectations by existing.",
+      "likes": 180000,
+      "lesson": "Biscuit is our most valuable communications asset. Deploy sparingly; the llama must never become a deflection from customer impact."
+    },
+    {
+      "text": "12 minutes of downtime this morning. Here's the postmortem, unedited, typos included.",
+      "likes": 96000,
+      "lesson": "Publishing the raw INC-104 postmortem earned enormous trust — and every promise in it became a quotable commitment. See: 'multiple redundant safeguards.'"
+    },
+    {
+      "text": "Our CFO Hank has personally taste-tested every kombucha batch since 2022. He would like everyone to know this is not in his job description.",
+      "likes": 64000,
+      "lesson": "Humanizing executives works right up until the thing they were humanized about becomes an incident."
+    }
+  ]
+}

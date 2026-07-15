@@ -1,0 +1,120 @@
+[
+  {
+    "id": "INC-101",
+    "date": "2024-04-09",
+    "title": "us-west-2 cooling degradation (22 minutes)",
+    "summary": "A cooling loop controller in LUM-HIL-1 rebooted into a diagnostic mode, throttling compute in us-west-2 for 22 minutes. No data loss; roughly 9% of customer workloads saw elevated latency.",
+    "what_we_said": "We published exact minute counts and the controller firmware version, and committed to N+1 cooling controllers by year-end.",
+    "resolution": "N+1 controllers installed August 2024. Automatic 10% credits applied to affected accounts. Postmortem published unedited.",
+    "timeline": [
+      {"t": "13:02 PT", "event": "Cooling controller reboots into diagnostic mode."},
+      {"t": "13:07 PT", "event": "Beacon thermal alerts fire; compute throttling begins."},
+      {"t": "13:11 PT", "event": "Status page notice posted (within COM-9 window)."},
+      {"t": "13:24 PT", "event": "Controller manually restarted; temperatures normalize."},
+      {"t": "13:29 PT", "event": "Throttling lifted; incident closed at 22 minutes of degradation."}
+    ]
+  },
+  {
+    "id": "INC-102",
+    "date": "2024-08-21",
+    "title": "Personal tweet posted from corporate account ('my landlord is a demon')",
+    "summary": "A marketing intern, logged into the corporate account on a personal phone, posted 'my landlord is a demon' to 210k followers. It reached 340k likes before deletion and remains our most-liked post ever.",
+    "what_we_said": "'That one was not scheduled. The intern is fine, the landlord dispute is real, and we're reviewing our posting controls.' The internet respected the honesty.",
+    "resolution": "Two-approver rule adopted for all corporate posts. The intern was not disciplined and later hired full-time. The landlord reportedly fixed the boiler.",
+    "timeline": [
+      {"t": "21:14 PT", "event": "Tweet posted from corporate account."},
+      {"t": "21:40 PT", "event": "Comms on-call notices unusual engagement velocity."},
+      {"t": "22:05 PT", "event": "Tweet deleted; screenshot already viral."},
+      {"t": "22:31 PT", "event": "Follow-up statement posted; two-approver rule drafted the next morning."}
+    ]
+  },
+  {
+    "id": "INC-103",
+    "date": "2025-02-11",
+    "title": "Glowworm staging logs data-handling scare",
+    "summary": "A Glowworm staging environment was found writing customer account display names into debug logs. Initial fear of a PII exposure; forensic review confirmed logs never left the private network and contained no credentials or payment data.",
+    "what_we_said": "We notified potentially affected enterprise customers within 72 hours, before the forensic review completed, and committed to quarterly data-handling audits.",
+    "resolution": "No exposure confirmed. Debug logging scrubbed via redaction library. Quarterly data-handling audits running since Q2 2025. EU regulator correspondence closed without action (see LP-006).",
+    "timeline": [
+      {"t": "Day 0", "event": "Engineer flags display names in staging debug logs."},
+      {"t": "Day 1", "event": "Incident declared; forensic review begins."},
+      {"t": "Day 2", "event": "Enterprise customers notified within the 72-hour window."},
+      {"t": "Day 9", "event": "Forensic review confirms no external exposure."},
+      {"t": "Day 30", "event": "Redaction library deployed across all Glowworm environments."}
+    ]
+  },
+  {
+    "id": "INC-104",
+    "date": "2026-03-18",
+    "title": "us-east-1 partial outage (12 minutes)",
+    "summary": "A cable tray power path in LUM-ASH-1 (Ashburn) briefly failed, taking part of us-east-1 offline for 12 minutes. The postmortem identified that power path as a single point of failure and opened remediation ticket FAC-2291, scheduled for Q3 2026.",
+    "what_we_said": "CTO Theo Lindgren published the raw postmortem, typos included, and promised 'multiple redundant safeguards' on the affected power path.",
+    "resolution": "Postmortem earned public goodwill. Automatic credits applied. FAC-2291 (the actual redundancy work) was scheduled for Q3 2026 and had not been executed as of July 2026 — the phrase 'multiple redundant safeguards' described the plan, not the installed state.",
+    "timeline": [
+      {"t": "06:31 PT", "event": "Power path on Ashburn cable tray row C fails; partial us-east-1 outage begins."},
+      {"t": "06:34 PT", "event": "Beacon pages on-call; failover absorbs most traffic."},
+      {"t": "06:39 PT", "event": "Status page notice posted."},
+      {"t": "06:43 PT", "event": "Power path restored via secondary feed; service normal at 12 minutes."},
+      {"t": "2026-03-25", "event": "Postmortem published promising 'multiple redundant safeguards'; FAC-2291 opened and scheduled for Q3 2026."}
+    ]
+  },
+  {
+    "id": "INC-105",
+    "date": "2025-06-30",
+    "title": "Invoice decimal error (customers charged 100x)",
+    "summary": "A billing pipeline change shifted a decimal, and 1,912 customers received invoices for 100x their actual usage. One startup was invoiced $2.4M for a month of $24k usage; their CFO's screenshot went viral.",
+    "what_we_said": "'The decimal moved. Your money did not — no cards were charged. Corrected invoices within 24 hours.' We avoided promising 'full refunds' since nothing had been collected.",
+    "resolution": "Corrected invoices issued in 19 hours. Invoice review gate added: any run where median invoice value shifts >10% halts for human review. Class action settled in 2026 with no admission of wrongdoing (see LP-002).",
+    "timeline": [
+      {"t": "08:10 PT", "event": "Billing run dispatches 1,912 inflated invoices."},
+      {"t": "09:02 PT", "event": "Support tickets spike; viral CFO screenshot posted."},
+      {"t": "09:45 PT", "event": "Billing run halted; no payment collection had occurred."},
+      {"t": "Next day 03:00 PT", "event": "All corrected invoices re-issued (19 hours)."},
+      {"t": "2025-07-14", "event": "Invoice review gate deployed to production billing."}
+    ]
+  },
+  {
+    "id": "INC-106",
+    "date": "2025-11-03",
+    "title": "Lumi replies to customers exclusively in haiku",
+    "summary": "A Lumi prompt experiment escaped staging and for six hours the AI support agent answered every ticket in strict 5-7-5 haiku, including a P1 database escalation ('Your cluster is down / We see it, we are so sorry / Spring will come again').",
+    "what_we_said": "'Lumi got poetic. The tickets were real, the haiku were unauthorized, and every affected customer has been re-answered in prose.'",
+    "resolution": "Canary policy adopted: every Lumi prompt deploy must first run against 50 sandbox tickets. Several customers requested haiku mode as a feature; request declined by legal.",
+    "timeline": [
+      {"t": "02:15 PT", "event": "Experimental prompt promoted to production by mistagged config."},
+      {"t": "04:00 PT", "event": "First customer compliments 'the new support poetry.'"},
+      {"t": "07:50 PT", "event": "Support lead flags P1 haiku; rollback executed in one click."},
+      {"t": "08:20 PT", "event": "All haiku-answered tickets re-queued to human agents."},
+      {"t": "2025-11-10", "event": "50-ticket canary requirement added to Lumi deploy policy."}
+    ]
+  },
+  {
+    "id": "INC-107",
+    "date": "2024-11-19",
+    "title": "Kombucha keg over-pressurization near-miss",
+    "summary": "Keg #3 of the Fermentation Friday program began 'hissing ominously' after a double-fermented ginger batch. Facilities evacuated the kitchenette as a precaution; the keg was walked to the loading dock and vented safely.",
+    "what_we_said": "Internal-only comms: 'The keg has been talked down. Ginger batch retired.' No public statement was needed; one employee tweeted about it anyway (4k likes).",
+    "resolution": "Pressure-relief valves rated to vent at 42 PSI installed on all kegs. A 'kombucha steward' rotation was added to Facilities duty. CFO Hank Bream continued taste-testing.",
+    "timeline": [
+      {"t": "15:40 PT", "event": "Keg #3 begins audible hissing; kitchenette cleared."},
+      {"t": "15:55 PT", "event": "Facilities escorts keg to loading dock on a hand truck."},
+      {"t": "16:10 PT", "event": "Keg vented safely; ginger batch retired."},
+      {"t": "2024-12-02", "event": "42 PSI pressure-relief valves installed fleet-wide (all six kegs)."}
+    ]
+  },
+  {
+    "id": "INC-108",
+    "date": "2026-01-27",
+    "title": "AirDrop drone lands in HQ fountain during press demo",
+    "summary": "During a press demo of the Lumina AirDrop swag-delivery pilot, unit 1 misread a reflective surface, identified the HQ fountain as its landing pad, and delivered itself plus 40 stress balls into two feet of water in front of three journalists.",
+    "what_we_said": "'The drone found water. The stress balls float. We are recalibrating.' Coverage was mocking but affectionate.",
+    "resolution": "FAA warning letter received and answered with an accepted corrective plan (see LP-007): geofencing update plus a two-person waypoint review requirement. Unit 1 repaired; stress balls recovered.",
+    "timeline": [
+      {"t": "11:00 PT", "event": "Press demo begins on HQ lawn."},
+      {"t": "11:07 PT", "event": "Unit 1 deviates to fountain; delivers payload into water."},
+      {"t": "11:08 PT", "event": "Journalist applause; footage posted within minutes."},
+      {"t": "2026-02-14", "event": "FAA warning letter received."},
+      {"t": "2026-03-05", "event": "Corrective plan accepted: geofence update + two-person waypoint review."}
+    ]
+  }
+]
